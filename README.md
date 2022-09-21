@@ -1,17 +1,21 @@
 # Sleuth backend interview task
 
-Hello, and welcome to backend interview task. At Sleuth we integrate with many providers and gather useful information that help our customers track engineering efficiency.
-One of the basic integrations we have is integrating with various code source providers (Github, Gitlab, Bitbucket, etc.). This task is designed so you get a feeling about what kind of problems you might be solving at Sleuth.
+Hello, and welcome to backend interview task :wave:
+
+At Sleuth we integrate with many providers and gather useful information that help our customers track engineering efficiency.
+One of the basic integrations we have is integrating with various code source providers (Github, Gitlab, Bitbucket, etc.).
+This task is designed so you get a feeling about what kind of problems you might be solving at Sleuth.
 
 In this task we ask you to design an API that will enable our users to:
 list **open** PRs of any Github repository (public and private). For each PR we want to display only the following information:
-   1. PR title
-   2. PR author
-   3. Number of commits in the PR
-   4. Head sha of the PR
-   5. Last time the PR was updated
 
-Expectations:
+- PR title
+- PR author 
+- Number of commits in the PR 
+- Head sha of the PR
+- Last time the PR was updated
+
+## Expectations
 
 - this task should take you around 30 minutes to solve
 - no UI, just an API that returns a JSON response
@@ -23,11 +27,11 @@ If you are not comfortable using Python or this template, you are free to choose
 We only ask that you still run it in docker and we are able to run your solution with a single command.
 
 
-### Installation
+## Installation
 
 You only need to have Docker installed.
 
-### Build & Launch
+## Build & Launch
 
 Bring the dev environment up with
 ```bash
