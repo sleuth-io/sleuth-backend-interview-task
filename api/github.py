@@ -6,6 +6,7 @@ import requests
 logger = logging.getLogger(__name__)
 
 
+# https://docs.github.com/en/rest
 class GithubREST:
     API_URL = "https://api.github.com"
 
