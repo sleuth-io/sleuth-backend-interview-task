@@ -6,7 +6,7 @@ from flask import jsonify
 import logging
 
 from github import GithubREST
-from query_params import QueryParams
+from query_params import QueryParams, DEFAULT_PAGE, DEFAULT_PER_PAGE
 
 dev_mode = True
 app = Flask(__name__)
@@ -36,8 +36,8 @@ def github_whoami():
 @app.route("/github/pulls/<path:repository>", methods=["GET"])
 def github_repository_pull_requests(repository: str):
     # collect query params
-    page = request.args.get("page", 1)
-    per_page = request.args.get("per_page", 10)
+    page = request.args.get("page", DEFAULT_PAGE)
+    per_page = request.args.get("per_page", DEFAULT_PER_PAGE)
     query_params = QueryParams(page=page, per_page=per_page)
 
     return {"data": f"TODO: got {repository=} and {query_params=}"}
