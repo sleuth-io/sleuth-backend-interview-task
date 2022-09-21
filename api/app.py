@@ -1,11 +1,12 @@
 import os
 
-from flask import Flask, Response
+from flask import Flask, Response, request
 from flask import jsonify
 
 import logging
 
 from github import GithubREST
+from query_params import QueryParams
 
 dev_mode = True
 app = Flask(__name__)
@@ -30,6 +31,16 @@ def github_whoami():
         return {"error": "Github token not set"}
 
     return GithubREST(token).get("/user")
+
+
+@app.route("/github/pulls/<path:repository>", methods=["GET"])
+def github_repository_pull_requests(repository: str):
+    # collect query params
+    page = request.args.get("page", 1)
+    per_page = request.args.get("per_page", 10)
+    query_params = QueryParams(page=page, per_page=per_page)
+
+    return {"data": "TODO"}
 
 
 if __name__ == "__main__":

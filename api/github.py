@@ -18,17 +18,18 @@ class GithubREST:
             "Authorization": f"Bearer {self.api_token}",
         }
 
-    def get(self, url_path: str):
+    def get(self, url_path: str, params: Optional[dict] = None) -> dict:
         """Call GitHub API. `url_path` should be with starting /."""
         if url_path and url_path.startswith("https://"):
             full_url = url_path
         else:
             full_url = f"{self.API_URL}{url_path}"
 
-        logger.info(f"Github GET request {full_url=}")
+        logger.info(f"Github GET request {full_url=}, {params=}")
         response = requests.get(
             full_url,
+            params=params,
             headers=self._request_headers(),
         )
         data = response.json()
-        return data
+        return {"links": response.links, "data": data}
