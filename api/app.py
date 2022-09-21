@@ -40,7 +40,7 @@ def github_repository_pull_requests(repository: str):
     per_page = request.args.get("per_page", 10)
     query_params = QueryParams(page=page, per_page=per_page)
 
-    return {"data": "TODO"}
+    return {"data": f"TODO: got {repository=} and {query_params=}"}
 
 
 if __name__ == "__main__":

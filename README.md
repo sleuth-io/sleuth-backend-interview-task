@@ -10,7 +10,7 @@ In this task we ask you to design an API that will enable our users to:
 list **open** PRs of any Github repository (public and private). For each PR we want to display only the following information:
 
 - PR title
-- PR author 
+- username of the PR author
 - Number of commits in the PR 
 - Head sha of the PR
 - Last time the PR was updated
@@ -55,9 +55,11 @@ cp .env.template .env
 ```
 and set `GITHUB_API_TOKEN` variable. You will need to rerun `make up` for the change to have effect.
 
+We suggest starting with using any public Github repository for testing. 
 
 ### Code structure
 
 This template provides a simple Flask API.
-All the routes are defined in `api/app.py`, there you will find a couple demo endpoints and the one we expect you to implement. This is meant to set you up for success, but feel free to change it if you want.
-We have provided a simple `GithubREST` client in `api/github.py` that takes care of including the API token authorization header and provides a `get` method. 
+
+- all the routes are defined in `api/app.py`, there you will find a couple demo endpoints and the one we expect you to implement
+- we have provided a simple `GithubREST` client in `api/github.py` that takes care of including the API token authorization header and provides a `get` method
