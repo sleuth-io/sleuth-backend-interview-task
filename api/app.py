@@ -26,7 +26,7 @@ def health_check() -> dict:
 
 
 @app.route("/health/github")
-def github_whoami() -> dict:
+def github_api_root_example() -> dict:
     return GithubREST().get("/")
 
 
