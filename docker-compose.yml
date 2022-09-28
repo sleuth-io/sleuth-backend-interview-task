@@ -6,7 +6,6 @@ services:
     environment:
       FLASK_DEBUG: "on"
       FLASK_APP: ./app.py
-      GITHUB_API_TOKEN: ${GITHUB_API_TOKEN}
     restart: always
     ports:
      - "5001:5001"
