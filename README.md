@@ -36,7 +36,7 @@ You only need to have Docker installed.
 
 Bring the dev environment up with
 ```bash
-make up
+docker-compose up
 ```
 
 This will expose the Flask application's endpoints on port `5001`.
@@ -44,7 +44,7 @@ This will expose the Flask application's endpoints on port `5001`.
 To shut down:
 
 ```bash
-make down
+docker-compose down
 ```
 
 In order to make requests to private repositories, you will need to use your own Github personal access token.
