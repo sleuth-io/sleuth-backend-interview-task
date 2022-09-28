@@ -18,27 +18,26 @@ logging.basicConfig(
 )
 
 
-@app.route("/health")
-def health_check() -> Response:
-    return jsonify("OK")
+@app.route("/")
+def health_check() -> dict:
+    return {
+        "data": "Hello, welcome to Sleuth backend interview task. Please see instructions in README.md"
+    }
 
 
-@app.route("/github/whoami")
-def github_whoami():
-    logger.info("Github whoami called")
-    token = os.getenv("GITHUB_API_TOKEN")
-    if not token:
-        return {"error": "Github token not set"}
-
-    return GithubREST(token).get("/user")
+@app.route("/health/github")
+def github_whoami() -> dict:
+    return GithubREST().get("/")
 
 
-@app.route("/github/pulls/<path:repository>", methods=["GET"])
+@app.route("/github/repos/<path:repository>/pulls", methods=["GET"])
 def github_repository_pull_requests(repository: str):
     # collect query params
     page = request.args.get("page", DEFAULT_PAGE)
     per_page = request.args.get("per_page", DEFAULT_PER_PAGE)
     query_params = QueryParams(page=page, per_page=per_page)
+
+    # list repos PRs: https://docs.github.com/en/rest/pulls/pulls#list-pull-requests
 
     return {"data": f"TODO: got {repository=} and {query_params=}"}
 
