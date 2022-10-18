@@ -6,7 +6,6 @@ from flask import jsonify
 import logging
 
 from github import GithubREST
-from query_params import QueryParams, DEFAULT_PAGE, DEFAULT_PER_PAGE
 
 dev_mode = True
 app = Flask(__name__)
@@ -32,14 +31,10 @@ def github_api_root_example() -> dict:
 
 @app.route("/github/repos/<path:repository>/pulls", methods=["GET"])
 def github_repository_pull_requests(repository: str):
-    # collect query params
-    page = request.args.get("page", DEFAULT_PAGE)
-    per_page = request.args.get("per_page", DEFAULT_PER_PAGE)
-    query_params = QueryParams(page=page, per_page=per_page)
-
     # list repos PRs: https://docs.github.com/en/rest/pulls/pulls#list-pull-requests
+    # example of a repository with lots of PRs: https://github.com/django/django
 
-    return {"data": f"TODO: got {repository=} and {query_params=}"}
+    return {"data": f"TODO: got {repository=}"}
 
 
 if __name__ == "__main__":

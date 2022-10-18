@@ -20,7 +20,6 @@ Return a JSON response, don't build any UI templates or frontend applications.
 ## Expectations
 
 - this task should take you around 30 minutes to solve
-- the response should respect `page` and `per_page` query parameters and indicate if all available PRs from Github are included in the response
 - no tests: definitely don't write any e2e or integration tests, but you are free to write unit tests if you feel like they will help you solve the task
 - we do not expect fully production ready code, but try to use best practices when designing large, scalable web applications as much as possible given the time restriction
 - no UI, just an API that returns a JSON response
@@ -55,4 +54,3 @@ This template provides a simple Flask API.
 
 - all the routes are defined in `api/app.py`, there you will find a couple demo endpoints and the one we expect you to implement
 - we have provided a simple `GithubREST` client in `api/github.py` that provides a `get` method.
-- `query_params.py` includes a very simple parsing of request query parameters, that your API implementation needs to respect
