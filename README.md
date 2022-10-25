@@ -2,20 +2,22 @@
 
 Hello, and welcome to backend interview task :wave:
 
-At Sleuth we integrate with many providers and gather useful information that help our customers track engineering efficiency.
-One of the basic integrations we have is integrating with various code source providers (Github, Gitlab, Bitbucket, etc.).
-This task is designed so you get a feeling about what kind of problems you might be solving at Sleuth.
+At Sleuth, we integrate with many providers and gather useful information that help our customers track engineering efficiency.
+With other words we call various APIs to collect data and statistics about many aspects of the programming process.
 
-In this task we ask you to design an API that will enable our users to:
-list **open** PRs of any public Github repository. For each PR we want to display only the following information:
+In this task we ask you to design an API endpoint that connects to the public [SWAPI api](https://swapi.dev/). 
+It's an API dedicated to the Star Wars movies. Among other things the SW API exposes the URL `/vehicles`, 
+where they return all vehicles from all SW films.
 
-- PR title
-- username of the PR author
-- Number of commits in the PR 
-- Head sha of the PR
-- Last time the PR was updated
+We would like you to implement the endpoint that accepts 1 user parameter: `minimal_cargo_capacity` and then lists
+all vehicles from the Star Wars movies that have at least this much cargo capacity. For each vehicle we wish to see
+the following information:
 
-Return a JSON response, don't build any UI templates or frontend applications.
+- Vehicle Name
+- Vehicle Model
+- Cargo Capacity
+
+Return a **JSON response**, don't build any UI templates or frontend applications.
 
 ## Expectations
 
@@ -53,4 +55,4 @@ docker-compose down
 This template provides a simple Flask API.
 
 - all the routes are defined in `api/app.py`, there you will find a couple demo endpoints and the one we expect you to implement
-- we have provided a simple `GithubREST` client in `api/github.py` that provides a `get` method.
+- we have provided a simple `SWApi` REST client in `api/swapi.py` that provides a `get` method.
